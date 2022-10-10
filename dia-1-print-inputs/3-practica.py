@@ -1,7 +1,0 @@
-nombre1 = input("Ingrese primer nombre: ")
-nombre2 = input("Ingrese segundo nombre: ")
-neonombre = nombre1.lower()+nombre2.upper()
-print("-----------------------------")
-print("El nombre de la marca es: " + neonombre )
-print("-----------------------------")
-print("Felicitaciones!")
