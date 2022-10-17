@@ -18,7 +18,7 @@ print((dic2['c2'][1]).upper())
 
 """Agregar elemento a diccionario"""
 dic3={1:'a',2:'b'}
-print(dic3)
+
 
 """agrega elemento"""
 dic3[3]='c'
@@ -36,5 +36,8 @@ print(dic3.values())
 
 """Sobreescribe todo"""
 print(dic3.items())
+
+
+
 
 

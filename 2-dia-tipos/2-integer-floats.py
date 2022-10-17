@@ -11,7 +11,3 @@ nuevaedad=str(edad+1)
 print("-------------------------------------")
 print("el otro año cumpliras: " + nuevaedad)
 print("-------------------------------------")
-
-
-
-

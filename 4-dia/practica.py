@@ -1,33 +1,37 @@
-"""productos=12
-while productos>=0:
-    print(f"tienes {productos} en lista")
-    productos -=1
-print("Se acabaron")
 """
+Preguntar nombre
+numero del 1 al 100...adivina en 8 intentos
+por cada intento habra 4 opciones:
+<1 o superior al Programa  a 100: no esta Permitido
+< al Programa: respues incorrecta
+> al Programa: respuesta incorrecta
+= al Programa: Ha ganado y mostrar cuantos intentos le ha tomado
+"""
+from random import *
+numero= randint(1,101)
+#print(numero)
+intento=8
+print("He pensado en un numero y debe adivinarlo")
+print("Tienes 8 intentos")
+while intento>0:
 
-numero = 50
-while numero>=0:
-    if numero%5==0:
-        print(numero)
-    numero -=1
+    print(f"Estas en el Intento Nº {intento}")
 
-lista_numeros = [4,5,8,7,6,9,8,2,4,5,7,1,9,5,6,-1,-5,6,-6,-4,-3]
-for elemento in lista_numeros:
-    if elemento>0:
-        print(elemento)
+    numero_user = int(input("ingresa tu numero:"))
+    if (numero_user<1) or (numero_user>100):
+        print("Numero No permitido")
+        print("-------------------------")
     else:
-        break
-
-lista_nombres = ["Marcos", "Laura", "Mónica", "Javier", "Celina", "Marta", "Darío", "Emiliano", "Melisa"]
-for indice,nombre in enumerate(lista_nombres):
-    print(f'{nombre} se encuentra en el índice {indice}')
-
-
-palabra="Python"
-lista_indices=list(enumerate(palabra))
-print(lista_indices)
-
-lista_nombres = ["Marcos", "Laura", "Mónica", "Javier", "Celina", "Marta", "Darío", "Emiliano", "Melisa"]
-for indice,valor in enumerate(lista_nombres):
-    if valor[0]=='M':
-        print(indice,valor)
+        intento -= 1
+        if numero_user==numero:
+            print("!!!!GANASTE!!!!")
+            break
+        elif (numero_user<numero):
+            print("El numero debe ser MAYOR")
+            print("-------------------------")
+            continue
+        elif (numero_user>numero):
+            print("El numero debe ser MENOR")
+            print("-------------------------")
+            continue
+else: print("Perdiste")

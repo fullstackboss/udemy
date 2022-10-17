@@ -7,7 +7,6 @@ print(mituple[2][2])
 
 tuple=(8,9,(1,2,3),9)
 print(tuple[2][1])
-
 neotuple=list(tuple)
 print(type(neotuple))
 print(neotuple)

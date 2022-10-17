@@ -44,6 +44,9 @@ for a,b in [[1,2],[3,4],[5,6]]:
     print(a)
     print(b)
 
+
+print("\n")
+
 """Con diccionarios"""
 dic={'clave1':'valor-a','clave2':'valor-b','clave3':'valor-c'}
 for item in dic.items():
@@ -51,19 +54,8 @@ for item in dic.items():
 for item in dic.values():
     print(item)
 for a,b in dic.items():
-    print("\n")
     print(a,b)
 
 
-lista_numeros = [1,5,8,7,6,8,2,5,2,6,4,8,5,9,8,3,5,4,2,5,6,4]
-suma_pares = 0
-suma_impares = 0
-for elemento in lista_numeros:
-    if elemento%2 ==0:
-        suma_pares=suma_pares+elemento
-    else:
-        suma_impares=suma_impares+elemento
 
-print(suma_pares)
-print(suma_impares)
 

@@ -3,3 +3,4 @@ resultado=texto.split("gana")
 """ Divide en palabras
 resultado=texto.split()"""
 print(resultado)
+

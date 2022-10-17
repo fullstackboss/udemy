@@ -8,3 +8,5 @@ print(micadena.index('a',6,15))
 """busca de derecha a izquierda---pero cuenta de iz a derecha"""
 print(micadena.rindex('a'))
 
+frase="Hola kakaroto insecto"
+print(frase[3])
