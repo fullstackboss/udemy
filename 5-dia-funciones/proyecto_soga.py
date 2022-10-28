@@ -1,44 +1,78 @@
 from random import *
 #lista de palabras
-listado=['kakaroto', 'vegeta','goku','trunks','gogeta']
+listado=['kakaroto', 'vegeta','gokuko','trunkus','gogeta',"bulmab","ulonu"]
+chances=3
 
-#selecion alaeatoria
-def selecciona_palabra(lista):
-    palabra_adivinar=choice(lista)
-    # descompone en caracteres
-    print("la palabra es:", palabra_adivinar)
-    palabra_separada=list(palabra_adivinar)
+def generar(palabra):
+    palabra = choice(listado)
+    print(f"la palabra seleccionada es: {palabra}")
+    return palabra
 
-    # Pinta guiones
-    lista_mostrada=[]
-    for item in palabra_separada:
-        lista_mostrada.append('-')
+def muestra_guiones(palabra):
+    palabra_guiones = []
+    for item in palabra:
+        palabra_guiones.append('-')
+    print(palabra_guiones)
+    return palabra_guiones
 
-    print(palabra_separada)
-    print(lista_mostrada)
 
-    chances=4
-    print(f"tienes {chances} oportunidades")
-
-    # Pide al usuario
-    letra_user = input("ingrese letra: ")
-
-    # Busca letra
-    if letra_user in palabra_separada:
-        print("Si esta")
-        for index,item in enumerate(palabra_separada):
-            if letra_user==item:
-                lista_mostrada[index]=letra_user
-            else:
-                pass
+def ingresar_letra():
+    letra_usuario=input("Ingrese letra: ")
+    #validando
+    while letra_usuario.isdigit()==True:
+        letra_usuario.isalnum()
+        print("Ingrese un caracter válido!")
+        letra_usuario = input("Ingrese letra: ")
     else:
-        print("no esta")
-        chances-=1
-    print("LISTA FINAL:", lista_mostrada)
-    print(f"Tienes {chances} oportunidades:")
-    print(lista_mostrada)
+        pass
+    return letra_usuario
+
+def actualizar_guiones(listaguion, letra,palabra):
+    if '-' in listaguion:
+        print("Hay guinoes aun")
+        for index, item in enumerate(palabra):
+                if letra == item:
+                    listaguion[index] = letra
+                else:
+                    pass
+    else:
+        print("GANASTE!!!!!")
+
+    print(listaguion)
+    return listaguion
+
+def descontar(dato):
+    dato-=1
+    print(f"Te quedan {dato} oportunidades")
+    return dato
+
+def evalua_coincidencia(mugu,letra,palabra, chance):
+    if letra in palabra:
+        #print(f"la letra {letra} SI esta en la palabra {palabra}")
+        actualizar_guiones(mugu,letra,palabra)
+    else:
+        #print(f"la letra {letra} NO esta en la palabra {palabra}")
+        chance-=1
+        print(f"Te queda {chances} oportunidades")
+        return chance
 
 
+print(f"BIENVENIDO AL JUEGO DEL AHORCADO, \nTendras {chances} oportunidades: ")
 
-#evalua si gano
-resultado=selecciona_palabra(listado)
+#Se elige la palabra desde lista
+palabra_aleatoria=generar(listado)
+
+#Genera y muestra la lista en guiones
+print("INTENTA ADIVINAR LA PALABRA:")
+lista_guiones=muestra_guiones(palabra_aleatoria)
+
+
+while chances != 0:
+    #Solicita ingresar letra al usuario
+    letra_usuario=ingresar_letra()
+    #Evalua la coincidencia
+    evalua_coincidencia(lista_guiones,letra_usuario,palabra_aleatoria, chances)
+    chances=evalua_coincidencia(lista_guiones,letra_usuario,palabra_aleatoria, chances)
+else:
+    print("AHORCADO!!!!!")
+
