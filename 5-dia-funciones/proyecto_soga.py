@@ -26,9 +26,9 @@ def ingresar_letra():
     else:
         pass
     return letra_usuario
-
 def actualizar_guiones(listaguion, letra,palabra):
     if '-' in listaguion:
+
         #print("Hay guiones aun")
         for index, item in enumerate(palabra):
                 if letra == item:
@@ -38,23 +38,28 @@ def actualizar_guiones(listaguion, letra,palabra):
     else:
         print("GANASTE!!!!!")
 
-    print(listaguion)
     return listaguion
-
-def descontar(dato):
-    dato-=1
-    print(f"Te quedan {dato} oportunidades")
-    return dato
-
 def evalua_coincidencia(mugu,letra,palabra, chance):
     if letra in palabra:
         #print(f"la letra {letra} SI esta en la palabra {palabra}")
-        actualizar_guiones(mugu,letra,palabra)
+        lista=actualizar_guiones(mugu,letra,palabra)
+        print("actualizando: ", lista)
+        if '-' in mugu:
+            print("continua")
+            estado=False
+        else:
+            estado=True
+            print("GANASTE!!!!")
+            return estado
     else:
         #print(f"la letra {letra} NO esta en la palabra {palabra}")
         chance-=1
         print(f"Te queda {chances} oportunidades")
         return chance
+def descontar(dato):
+    dato-=1
+    print(f"Te quedan {dato} oportunidades")
+    return dato
 
 
 print(f"BIENVENIDO AL JUEGO DEL AHORCADO, \nTendras {chances} oportunidades: ")
@@ -73,6 +78,7 @@ while chances != 0:
     #Evalua la coincidencia
     #evalua_coincidencia(lista_guiones,letra_usuario,palabra_aleatoria, chances)
     chances=evalua_coincidencia(lista_guiones,letra_usuario,palabra_aleatoria, chances)
+
 else:
     print("AHORCADO!!!!!")
 
