@@ -29,7 +29,7 @@ def ingresar_letra():
 
 def actualizar_guiones(listaguion, letra,palabra):
     if '-' in listaguion:
-        print("Hay guinoes aun")
+        #print("Hay guiones aun")
         for index, item in enumerate(palabra):
                 if letra == item:
                     listaguion[index] = letra
@@ -71,7 +71,7 @@ while chances != 0:
     #Solicita ingresar letra al usuario
     letra_usuario=ingresar_letra()
     #Evalua la coincidencia
-    evalua_coincidencia(lista_guiones,letra_usuario,palabra_aleatoria, chances)
+    #evalua_coincidencia(lista_guiones,letra_usuario,palabra_aleatoria, chances)
     chances=evalua_coincidencia(lista_guiones,letra_usuario,palabra_aleatoria, chances)
 else:
     print("AHORCADO!!!!!")
